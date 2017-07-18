@@ -4,7 +4,7 @@
 
 ### Introduction ###
 This tutorial demonstrates how to:
-- Create an integration flow on Integration Cloud Service (ICS) 
+- Create an integration flow on Integration Cloud Service (ICS)
 
 ### About the Exercise Today ###
 In this exercise, we will:
@@ -38,9 +38,9 @@ In this exercise, we will:
 	* **Version** Select Keep the default value. (Change only if you are going to create a new *versioned* integration)
 	* **What does this integration do? (Optional)** You can leave it empty or enter any meaningful text to describe this *Integration*.
 	* **Which package does this integration belong to? (Optional)** You can leave it empty or enter any meaningful package name to collectively group with other integrations.
-	
+
 ![](images/303/04.integration_new.png)
-	
+
 5. Click `Create` button, the integration orchestration editor is shown.
 
 ![](images/303/05.integration_editor.png)
@@ -59,7 +59,7 @@ In this exercise, we will:
 	* Check to select **Configure a request payload for this endpoint**
 	* Check to select **Configure this endpoint to receive the response**
 	* Leave others empty or unselect.
-	
+
 	Click `Next` button.
 
 ![](images/303/07.integration_rest.png)
@@ -67,9 +67,9 @@ In this exercise, we will:
 8. The **Configure the Request Payload** page is shown, check:
     * **Select the request payload file** `JSON Sample`
 	* **Select the type of payload with which you want the endpoint to receive** `JSON`
-	
+
 	Click `<<< inline >>>` link next to **--OR-- enter sample JSON**
-	
+
 ![](images/303/08.integration_rest_request.png)
 
 9. The **Request Sample Json Payload** page is shown.
@@ -81,7 +81,7 @@ In this exercise, we will:
 10. Click `Next` button to proceed next, **Configure the Response Payload** page, check:
     * **Select the response payload file** `JSON Sample`
 	* **Select the type of payload with which you want the endpoint to reply** `JSON`
-	
+
 	Click `<<< inline >>>` link next to **--OR-- enter sample JSON**
 
 ![](images/303/10.integration_rest_response.png)
@@ -94,14 +94,14 @@ In this exercise, we will:
 
 12. Click `Next` button to proceed next, **Oracle REST Endpoint Configuration Summary** page.  
     Your setup should look like below, then click `Done` button. We just finish defining a REST **Trigger** to expose this integration flow to client consumer.
-	
+
 ![](images/303/12.integration_rest_done.png)
 
 13. Back to the *Integration Orchestration Editor*, you can:
     * Drag and drop to re-arrange each node of integration orchestration flow to different location.
     * Click `-` or `+` button on top left corner to re-size flow diagram to fit your screen resolution.
 	* As best practice, regularly click `Save` button at the top left corner to store your work from time to time.
-	
+
 ![](images/303/13.integration_half.png)
 
 14. Next, we are going to define a service callout, to **Invoke** an endpoint service - CRM Customer Service.  
@@ -117,10 +117,10 @@ In this exercise, we will:
 	* **Do you want to configure this as a callback invoke?** Select `No`
 
 ![](images/303/15.integration.invoke.setup.png)
-	
+
 16. Do not change other values, click `Next` -> `Next` -> `Next` and finally `Done` buttons. You should have a similar integration flow as below.  
     We just finish defining an **Invoke** to call a CRM customer service SOAP endpoint.  
-	
+
 	Now, we are going to define how different data fields are being passed incoming from **Trigger** to outgoing **Invoke*.  
 	Click the **Map to CustomerServiceActivty** node and then further click on the `pencil` icon to enter data mapper screen.
 
@@ -194,11 +194,11 @@ In this exercise, we will:
     The logic is based on the acceptance - **accepted** field of an offer from customer by:  
 	- If **true**, means customer accepted the offer, then return the CRM logged *activityId* and the QR code image URL, which is generated based on *offerId*.
 	- If **false**, means customer denied the offer, then return the CRM logged *activityId* (still required as a 'denied' customer action) and an empty QR code image URL, i.e. no QR code image will be displayed.  
-	
+
     To do so, click `Actions` on the right side pane, then drag the `Switch` and drop it onto the integration flow, between **CustomerServiceActivity** node and **Map to ProcessOffer** node.
-	
+
 ![](images/303/29.integration.switch.before.png)
-	
+
 30. You should have a similar flow diagram as below. Adjust node and line position, zoom out or zoom in if necessary.
 
 ![](images/303/30.integration.switch.after.png)
@@ -222,7 +222,7 @@ In this exercise, we will:
 ![](images/303/33.integration.expression.validate.png)
 
 34. Under *if* or *otherwise* condition, different response data will be returned. Here we delete the default `Map to ProcessOffer` response data mapping.  
-    Click on the `Map to ProcessOffer`, click the hamburger icon and then click `Delete` to remove this node. 
+    Click on the `Map to ProcessOffer`, click the hamburger icon and then click `Delete` to remove this node.
 
 ![](images/303/34.integration.delete.png)
 
@@ -233,14 +233,14 @@ In this exercise, we will:
 36. The **Data Mapping** dialog window is shown.  
     Expand the **Source** in left pane, drag the `return` field under `$CustomerServiceActivity` -> `addCustomerActivityResponse`, and drop it onto `activityid` in right pane.  
 	Click `imgurl` to proceed advance data mapping.
-    
+
 ![](images/303/36.integration.if.map.png)
 
 37. The **Build Mappings** window dialog is shown.  
     Expand **Mapping Components** under **Source** in left pane, and then expand `Functions` -> `String`.  
 	Drag the function `fx concat` and drop it onto `- Drag and Drop or Type value here...` under **Mapping** in right pane.  
 	Click `Save`.
-	
+
 ![](images/303/37.integration.if.map1.png)
 
 38. Click on `string1`, enter the QR code URL without the offer id including ' ' sign, i.e. `'https://qrcodegenerator-<Your Application Container Cloud Identity Domain Hostname>/ctdqr/v1/offer/'` (Hostname obtained from 'Microservices' lab)  
@@ -255,14 +255,14 @@ In this exercise, we will:
 
 40. **(Simple Challenge)**  
     Complete the `Map to ProcessOffer` at the `Otherwise` path. The only different is:  
-	Enter **''** for `imgurl` (Instead of *'https://qrcodegenerator-<Your Application Container Cloud Identity Domain Hostname\>/ctdqr/v1/offer/'* at the `IF Accept Offer` path)  
+	Enter **''** for `imgurl` (Instead of *'https://qrcodegeneratorXX-<Your Application Container Cloud Identity Domain Hostname\>/ctdqr/v1/offer/'* at the `IF Accept Offer` path)  
 	The result should be the same as below.  
     **(\*Hints: Repeat step 35 to 39)**
 
 ![](images/303/40.integration.otherwise.png)
-	
+
 41. The *Process Offer* integration flow development is done.  
-    However, there is an error showing at the top right corner, telling that **primary business identifier for Tracking** is needed. 
+    However, there is an error showing at the top right corner, telling that **primary business identifier for Tracking** is needed.
 
 ![](images/303/41.integration.error.png)
 

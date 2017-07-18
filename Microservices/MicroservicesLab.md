@@ -15,6 +15,10 @@ This lab is part of the APAC Cloud Test Drive and is the 2nd lab about creating 
 
 - You will need to install an IDE environment and GIT client in your local computer. The instructions assume you are using the VM provided as part of this workshop. The VM is also used in the [Oracle DevOps Cloud Native Microservice Workshop](https://github.com/oracle-weblogic/cloud-native-XWeeks/blob/master/cloud-native-devops/README.md). You can download the VM [here](https://drive.google.com/drive/folders/0B0MXC4qaECO6RHBWMEttdW9fOVk).
 
+## 0.4 Notes
+
+The screen captures shown below might differ from what you see in your screen, as the Identity Domain, Username, **Project Name**, etc may be different.
+
 # 1. Create Offer REST API Microservice
 
 ## 1.1 Create Initial Git Repository - Offer REST API
@@ -23,14 +27,15 @@ This lab is part of the APAC Cloud Test Drive and is the 2nd lab about creating 
 
 ![](images/001.dashboard.png)
 
-- In the left hand navigation panel, click **Project**
+- In the left hand navigation panel, click **Project**   
+Make sure you are in the correct project, e.g. `APAC Cloud Test Drive XX`, where XX is your group number (01-03).
 
 ![](images/002.createrepo.png)
 
 - On the right side in the **REPOSITORIES** section, click on **New Repository** to create a new Git Repository.
 - In the New Repository wizard enter the following information and click **Create**.
 
-	**Name:** `OfferMicroservice`
+	**Name:** `OfferMicroserviceXX` where XX is your group number (01-03)
 
 	**Description:** `Microservice to provide REST API of Offer Details`
 
@@ -54,7 +59,7 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
 ![](images/005.navibuild.png)
 
-- In the New Job popup window, enter `Offer REST API Build` for Job Name and click **Save**.
+- In the New Job popup window, enter `Offer REST API Build XX` for Job Name (where XX is your group number 01-03) and click **Save**.
 
 ![](images/006.newbuildjob.png)
 
@@ -110,9 +115,9 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
 - Enter the following data:
 
-	**Configuration Name:** OfferAPIDeploy
+	**Configuration Name:** `OfferAPIDeployXX`, where XX is your group number (01-03)
 
-	**Application Name:** offer
+	**Application Name:** `offerXX`, where XX is your group number (01-03)
 
 ![](images/019.deployname.png)
 
@@ -174,13 +179,13 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
 ![](images/029.accsgoto.png)
 
-- On the ACCS Service Console you can view all the deployed applications including our newly create **Offer**.
+- On the ACCS Service Console you can view all the deployed applications including our newly create **offerXX**.
 
 ![](images/030.accsconsole.png)
 
 ## 1.4 Create ACCS Service Binding to DBCS
 
-- Click the **[ Offer ]** to see the ACCS application Details
+- Click the **[ offerXX ]** to see the ACCS application Details
 
 ![](images/031.accsoffer.png)
 
@@ -196,13 +201,15 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
   **Service Type:** `Database Cloud Service`
 
-	**Service Name:** `apacctddb`
+	**Service Name:** `apacctddbXX`, where XX is your group number (01-03)
 
 	**Username:** `loyalty`
 
 	**Password:** `the database password`, e.g. Welcome_1
 
  Click **[Save]** button.
+
+**Make sure you SELECT the correct database service, your should use apacctddbXX. Don't use the wrong group!**
 
 ![](images/034.addandsave.png)
 
@@ -218,7 +225,7 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
 ## 1.5 Verify the Working Service
 
-- In you application panel, you should see the base URL of your application. Something like https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com
+- In you application panel, you should see the base URL of your application. Something like https://offerXX-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com
 
 ![](images/037.url.png)
 
@@ -228,7 +235,7 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
   The final URL should looks like this
 
-https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/ptmgt/v1/offers/10001
+https://offerXX-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/ptmgt/v1/offers/10001
 
 ![](images/038.browser.png)
 
@@ -245,6 +252,8 @@ https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/pt
 - Login to Developer Cloud Service if you haven't done so.
 - In the left hand navigation panel, click **Project**
 
+**Make sure you are in the correct project**
+
 ![](images/101.project.png)
 
 - On the right side in the **REPOSITORIES** section, click on **New Repository** to create a new Git Repository.
@@ -253,7 +262,7 @@ https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/pt
 
 - In the New Repository wizard enter the following information and click **Create**.
 
-	**Name:** `QRCodeMicroservice`
+	**Name:** `QRCodeMicroserviceXX` where XX is your group number (01-03)
 
 	**Description:** `Microservice to generate Offer QR Code. The QR Code will contains an URL of the actual Offer.`
 
@@ -285,7 +294,7 @@ https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/pt
 
 ![](images/112.createfolder.png)
 
-- Enter **QRCodeMicroservice** as the folder name. Then Click any space (e.g. in the size column) next to the name
+- Enter **QRCodeMicroserviceXX** as the folder name. Then Click any space (e.g. in the size column) next to the name
 
 ![](images/113.gotofolder.png)
 
@@ -325,7 +334,8 @@ https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/pt
 
 ![](images/121.openjs.png)
 
-- In line 12, change the URL to your identity domain, i.e. what you have used in **Section 1.5**. As you can see, this is the URL of the **Offer REST API Microservice**
+- In line 12, change the URL to your identity domain, i.e. what you have used in **Section 1.5**. As you can see, this is the URL of the **Offer REST API Microservice**. This is the URL we used above, i.e.   
+https://offerXX-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/ptmgt/v1/offers/
 
 ![](images/122.line12.png)
 
@@ -373,7 +383,7 @@ https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/pt
 
 ### 2.2.4 create Merge Request in Developer Cloud Service to uptake the code
 
-- In Developer Cloud Service, click on **Code** tab. If you are not viewing the QRCodeMicroservice repo, change to the QRCode Repo.  
+- In Developer Cloud Service, click on **Code** tab. If you are not viewing the QRCodeMicroserviceXX repo, change to the QRCode Repo.  
 
 ![](images/141.checkbranch.png)
 
@@ -395,7 +405,7 @@ https://offer-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.com/pt
 
 - Enter the following information into the new merge request and click **Next**
 
-	**Repository:** `QRCodeMicroservice.git`
+	**Repository:** `QRCodeMicroserviceXX.git`
 
 	**Target Branch:** `master`
 
@@ -469,7 +479,7 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
 ![](images/164.buildscreen.png)
 
-- Click the **Source Control** tab. Select **Git** radio button. In the Repositories section, select **QRCodeMicroservice.git** from the URL drop down.
+- Click the **Source Control** tab. Select **Git** radio button. In the Repositories section, select **QRCodeMicroserviceXX.git** from the URL drop down.
 
 	**Note:** Make sure you select the Git repository for the QR Code Microservice.
 
@@ -523,9 +533,11 @@ Now that we have the source code in our Developer Cloud Service managed Git Repo
 
 - Enter the following data:
 
-  **Configuration Name:** QRCodeGeneratorDeploy
+  **Configuration Name:** `QRCodeGeneratorDeployXX`
 
-  **Application Name:** qrcodegenerator
+  **Application Name:** `qrcodegeneratorXX`   
+
+	**REMEMBER XX is your group number (01-03)**
 
 ![](images/183.createdeploy.png)
 
@@ -586,7 +598,7 @@ Microservice, you can REUSE the same target**.
 
 ![](images/192.accs.png)
 
-- On the ACCS Service Console you can view all the deployed applications including our newly create **qrcodegenerator**.
+- On the ACCS Service Console you can view all the deployed applications including our newly create **qrcodegeneratorXX**.
 
 ![](images/193.accsqr.png)
 
@@ -596,7 +608,7 @@ Microservice, you can REUSE the same target**.
 
   The final URL should looks like this
 
-	https://qrcodegenerator-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.comm/ctdqr/v1/offer/10001
+	https://qrcodegeneratorXX-{your-identity-domain}.apaas.{your-data-center}.oraclecloud.comm/ctdqr/v1/offer/10001
 
 ![](images/194.qrurl.png)		
 
