@@ -4,7 +4,7 @@
 
 ### Introduction ###
 This tutorial demonstrates how to:
-- Deploy Loyalty Management application to Java Cloud Service using Oracle Developer Cloud Service 
+- Deploy Loyalty Management application to Java Cloud Service using Oracle Developer Cloud Service
 The Loyalty Management application is a JEE web application which is built by simple JSP pages, to serve marketing manager for offer campaign creation.  
 
 ### About the Exercise Today ###
@@ -37,12 +37,14 @@ In this exercise, we will:
 
 ![alt text](images/102/05.new.job.png "Create new build job")
 
-5. Enter name *LoyaltyManagementBuild* for the new job. Select the *Create a free-style job* option and save.
+5. Enter name **LoyaltyManagementBuildXX** for the new job, where **XX** is your group number (01-03). Please contact the instruction if you don't know your group number. Select the *Create a free-style job* option and save.
 On the Main configuration page of the newly created job make sure **Default (The default Java version in the executing environment)** is the selected JDK.
+
+**REMEMBER to add XX at the end of the job name**
 
 ![alt text](images/102/06.job.main.png "Configure job")
 
-6. Change to the **Source Control** tab and select **Git**. 
+6. Change to the **Source Control** tab and select **Git**.
 In the git's properties section select the only one available Git repository which is provided in the list.
 In the Branches section, add and select **master** option in the list. This is to make sure only **master** branch version will be used.
 Leave the advanced settings default.
@@ -70,13 +72,13 @@ Please note the build job contains an extra build step which packs the master lo
 ### Configure Java Cloud service deployment ###
 
 11. Now create deployment configuration which enable direct deployment to Java Cloud Service after a successful build job.
-Change to **Deploy** page in DevCS and create **New Configuration** 
+Change to **Deploy** page in DevCS and create **New Configuration**
 
 ![alt text](images/102/11.new.deploy.png "New deploy configuration")
 
 12. Set the following properties.
 
-- **Configuration Name**: any name to identify deployment configuration - we use **loyalty**.
+- **Configuration Name**: any name to identify deployment configuration - we use **loyaltyXX**, where XX is your group number (01-03).
 - **Application Name**: application name in JCS. This will determine the application's URL context path - we use **loyalty**.
 - **Deployment Target**: click **New** and select Java Cloud Service and define connection properties such as **Version**, **Protocol**, **Host**, **HTTPS Port** and **credentials**.
   [\(Find out the Java Cloud Service Host and HTTPS Port.\)](java.cloud.md).
@@ -89,7 +91,7 @@ Change to **Deploy** page in DevCS and create **New Configuration**
 
 ![alt text](images/102/13.jcs.config.png "JCS Configuration")
 
-13. Click **Save**. 
+13. Click **Save**.
 
 ### Build and deploy the Loyalty Management Application ###
 
@@ -99,7 +101,7 @@ Change to **Deploy** page in DevCS and create **New Configuration**
 
 15. Other option is to fire a new Build Job execution which will deploy artifact after a successfull build. Go back to **Build** page and click the wrench icon belongs to Loyalty Management application build job.
 
-![alt text](images/102/15.build.now.png "Build Now") 
+![alt text](images/102/15.build.now.png "Build Now")
 
 16. Both way deploys JEE application on Java Cloud Service. You can check the deployment result on the **Deploy** page. Once the deploy is ready (this may take a while) click the **Deploy to JCS** link.
 

@@ -15,6 +15,9 @@ In this exercise, we will:
 ### Prerequisites ###
 - Oracle Public Cloud Service account including Developer Cloud Service (Check with instructor if you don't have one)
 
+### Note
+Please be reminded that the screen captures shown below might differ from what you see on your screen - as your Identity Domain Name, Username, **Project Name**, etc can be different.
+
 ----
 
 #### Create Oracle Developer Cloud Service project ####
@@ -27,9 +30,12 @@ In this exercise, we will:
 
 ![alt text](images/101/02.new.project.png)
 
-3. Enter the name of the project and set the desired properties.
-	**Name:** `APAC Cloud Test Drive`
-	**Description:** `APAC Cloud Test Drive project hub`
+3. Enter the name of the project and set the desired properties.   
+	**Name:** `APAC Cloud Test Drive XX`   
+	**Description:** `APAC Cloud Test Drive project hub`   
+	where **XX** is your group number - from 01 to 03. Please check with the instructor if you don't know your group number.
+
+** REMEMBER to add XX (your group number) in the project name.**
 
 ![](images/101/02.new.project.detail.png)
 

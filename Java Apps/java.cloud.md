@@ -6,7 +6,7 @@
 
 ![](images/jcs/00.png)
 
-2. Click on JCS instance name. 
+2. Click on JCS instance name. **If there is MORE than one JCS instance in your environment, choose the one with YOUR GROUP NUMBER (01-03).**
 
 ![](images/jcs/01.png)
 

@@ -9,7 +9,7 @@ You can access Oracle Developer Cloud Service projects from Integrated Developme
 + Source control system integration with the Oracle Developer Cloud Service Git repository
 
 This tutorial demonstrates how to:
-- Perform a simple continuous integration and delivery using Oracle Developer Cloud Service with Eclipse IDE 
+- Perform a simple continuous integration and delivery using Oracle Developer Cloud Service with Eclipse IDE
 
 ### About the Exercise Today ###
 In this exercise, we will:
@@ -100,7 +100,7 @@ In the Project Explorer area find the *loyalty* project and expand the navigatio
 14. Modify the following part:
 
   	<h2>Welcome to the Loyalty Manager !!</h2>
-	
+
 ![](images/103/15.png)
 
 To what you would like to see on the page. For example:
@@ -124,7 +124,7 @@ To what you would like to see on the page. For example:
 
 #### Continuous Integration & Delivery (CICD) ####
 
-18. Now change back to the browser and check the Build page in the Oracle Developer Cloud Service project. You should see that a new build (in our case: *LoyaltyManagementBuild*) has been fired by the Git changes.
+18. Now change back to the browser and check the Build page in the Oracle Developer Cloud Service project. You should see that a new build (in your case: *LoyaltyManagementBuildXX*, where XX is your group number between 01-03) has been fired by the Git changes.
 
 ![](images/103/21.png)
 
