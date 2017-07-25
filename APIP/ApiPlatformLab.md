@@ -375,3 +375,80 @@ The registration request will automatically route to the approver.
 - Click you own API. For example, if you are using a shared environment, that will be `Partner Offer API XX` where XX is your group number.
 
 ![](images/072.chooseapi.png)
+
+- **Click** the [`Registrations`] button, that is the 5th button, to navigate to the **Registrations** pane. You will see there is an outstanding **Requesting Registration**.  
+
+![](images/073.registration.png)
+
+- **Click** the [`Requesting Registration`] button to see the details. You can also use the [`^`] button in the right hand side to toggle the detail information view.
+
+![](images/074.pending.png)
+
+- When you **hover** the mouse pointer on the **Application Name**, i.e. your actual application name, e.g. `PartnerAppXX`, you will see **3 buttons** on the right hand side.
+- **Click** the [`Approve`] button in the right hand side to approve the request.
+- Note that we, as **API Admin** are approving a request **from App Developer**.
+
+![](images/074.approve.png)
+
+- Scroll up and enter the approval comments, e.g.    
+   `Approve the Partner App`   
+  and click [`Yes`]
+
+![](images/075.confirmapp.png)
+
+- Wait for a while and you will see the request is now became **Registered**
+
+![](images/076.registered.png)
+
+# 5. Partner Application Developer Consume API
+
+Once the registration is approved, the application developer can start using the API.
+
+## 5.1 Use Developer Portal to check Application Key and Registration Status
+
+- Now, we will use the other browser session, which already logged in to the Developer Portal. If you ONLY have one browser, you will need to **logout** from API Platform first. Then login to the **Developer Portal**. Remember, the URL of the developer portal should be similar to this.
+   `https://{apiplatorm-host-name}/developers/`
+- Please be also reminded that the credential for **Developer Portal** should be an **app developer**, e.g. `app-dev-user`
+
+- Navigate [`My Applications`], you will see the **Registered API** in **your application**. Please be reminded your application might have a different name, such as `PartnerAppXX`, if you are using a shared environment. (XX is your group number 01-20)   
+
+![](images/081.app.png)
+
+- Similar to Application, if you navigate to [`APIs`] tab, you will see in **your API**, there is a **registered applications**. Please be reminded if you are using a shared environment, your API will have a different name, such as `Partner Offer API XX`. (XX is your group number 01-20)
+
+![](images/082.api.png)
+
+- Navigate back to [`My Applications`], click the name of your application, e.g. `PartnerAppXX` where XX is your group number 01-20.
+
+![](images/083.app.png)
+
+- In the Application Overview, **COPY** your application key. This key will be used in the next exercise.
+
+![](images/084.appkey.png)
+
+## 5.2 Use Postman to test the API
+
+- start Postman and create a new request
+  - this will be a GET request
+  - the end point will be    
+   `{http|https}://{your-api-gateway-fqdn}:{port-number}/apis/v1/offers{XX}/10001`  (where XX is your group number 01-20)
+- Add the following 2 headers
+  - `Content-Type` `application/json`
+  - `X-API-Key` `{the application key copied previously in 5.1}`
+- Hit the [`Send`] button and you should be able to get the result, as shown below.
+
+![](images/085.postman.png)
+
+- Hit [`Send`] button for more than **5 times within 1 minute**, you should see the error message as below - because we have a application rate limit policy.
+
+![](images/086.ratelimit.png)
+
+## 5.3 Using API Developer Portal Analytics
+
+- In the **Developer Portal**, navigate to `your application` (e.g. `PartnerAppXX`). Go to the `Analytics` tab - that is the 4th button in left hand side, the icon with a [`bar chart`]
+
+- You can check the analytics and statistics of your applications and registered APIs.
+
+![](images/087.analytics.png)
+
+# You have finished the API Platform Exercise
