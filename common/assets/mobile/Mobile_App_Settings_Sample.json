@@ -1,0 +1,10 @@
+{
+      "baseUrl": "https://mcs-ctd.mobileenv.us2.oraclecloud.com:443",
+      "applicationKey": "d7b6d8b9-c489-4b48-a661-0fb82c8628e7",
+      "backendId": "c6a2b4cd-0cef-4b23-97df-2be816e71cd7",
+      "anonymousToken": "Q1REX01DU19NT0JJTEVfQU5PTllNT1VTX0FQUElEOkZ6dGczZncuNG5xaGl5",
+      "API":"LoyaltyMgmt03",
+      "senderID":"925757644219",
+	  "LoginUser":"demouser",
+      "LoginPassword":"Password123"
+}

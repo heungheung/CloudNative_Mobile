@@ -1,0 +1,124 @@
+#%RAML 0.8
+title: Loyalty Management API
+version: 1.0
+baseUri: /mobile/custom/LoyaltyManagementAPI
+protocols: [HTTPS]
+/offer/{id}/qr:
+  displayName: Offer QR code.
+  get:
+    displayName: Get offer QR code.
+    description: |
+      Get offer QR code.
+      
+    protocols: [HTTPS]
+    responses:
+      200:
+        body:
+          image/png:
+/offer:
+  displayName: Offers
+  get:
+    displayName: List offers.
+    description: |
+      List offers.
+      
+    protocols: [HTTPS]
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [{
+                  "id": 10001,
+                  "name": "Our new aroma roast",
+                  "points": 10000,
+                  "message": "Try special brew today and enjoy 10% off with 10,000 points",
+                  "productid": 20001,
+                  "productname": "Aroma Beans",
+                  "productprice": 21,
+                  "productimage": "20001.jpg",
+                  "productdesc": "Blend of incomparable Balance of sweetness, aroma and body. Composed of 50% Arabica and 50% Robusta."
+                },{
+                  "id": 10002,
+                  "name": "Fresh brewed everyday",
+                  "points": 20000,
+                  "message": "Purchase special brew between 3-5pm and receive 20% off with 20,000 points",
+                  "productid": 20002,
+                  "productname": "Valentine",
+                  "productprice": 20,
+                  "productimage": "20002.jpg",
+                  "productdesc": "Specialty coffee roasted in small batches by people who care. The specialty part means we only choose to roast top-tier, rigorously-graded, traceable coffees."
+                },{
+                  "id": 10003,
+                  "name": "Upgrade your iced coffee",
+                  "points": 5000,
+                  "message": "Stop in today and treat yourself to an upgraded iced coffee with 5,000 points",
+                  "productid": 20003,
+                  "productname": "Coffee Break",
+                  "productprice": 15,
+                  "productimage": "20003.jpg",
+                  "productdesc": "Celebrates the rich flavor of espresso. It is a simple drink, yet we prepare it with care. Baristas pour two espresso shots, and then quickly pour hot water over the top to produce a light layer of crema."
+                }]
+              
+/offer/{id}/accept:
+  displayName: Accept an offer.
+  post:
+    description: |
+      Accept an offer
+      
+    protocols: [HTTPS]
+    body:
+      application/json:
+        example: |
+          {
+            "productid": 20001,
+          }
+          
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "activityid" : "0-79960-v1.0",
+                "imgurl" : "https://qrcodegenerator-gse00010885.apaas.em3.oraclecloud.com/ctdqr/v1/offer/10001"
+              }
+              
+/offer/{id}/reject:
+  displayName: Reject an offer.
+  post:
+    description: |
+      Accept an offer
+      
+    protocols: [HTTPS]
+    body:
+      application/json:
+        example: |
+          {
+            "productid": 10001
+          }
+          
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "activityid" : "0-79960-v1.0",
+                "imgurl" : "https://qrcodegenerator-gse00010885.apaas.em3.oraclecloud.com/ctdqr/v1/offer/10001"
+              }
+              
+/offer/notify:
+  displayName: Send notifications of offer.
+  post:
+    displayName: Send notifications of new offer
+    description: |
+      Send notifications of new offer to customre.
+      
+    protocols: [HTTPS]
+    body:
+      application/json:
+    responses:
+      200:
+        body:
+          application/json:

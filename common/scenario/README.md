@@ -13,4 +13,5 @@ Nowadays, most of companies are providing (membership) points as a reward to cus
 ## Overall service flow for Loyalty Managment ##
 The below picture shows you overall service flow for proactive and real-time Loyalty Management. As you can see in the picture, loyalty manager can start the service flow by desinging and creating offers for customers. Customers will get push notification on offer, see the details in offer, and make a decision on whether she/he accept or reject the offer. And we will have offer results stored in CRM (Sales CS) for furthur marketing/sales activities. 
 
-![](../images/ServiceFlow4LoyaltyMgmt.PNG)
+![](../images/CTD_About_Lab.PNG)
+
